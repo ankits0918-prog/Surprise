@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Valentine ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#ff5f9e,#ff9acb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+    color:white;
+}
+
+.container{
+    text-align:center;
+    background: rgba(255,255,255,0.15);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+    max-width:400px;
+    width:90%;
+}
+
+/* Question Screen */
+
+#question h1{
+    font-size:28px;
+}
+
+.buttons{
+    margin-top:25px;
+    position:relative;
+    height:60px;
+}
+
+button{
+    padding:10px 25px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#yesBtn{
+    background:white;
+    color:#ff4081;
+    margin-right:20px;
+}
+
+#noBtn{
+    background:#ff1744;
+    color:white;
+    position:absolute;
+}
+
+/* Love Screen */
+
+#love{
+    display:none;
+}
+
+#love h1{
+    font-size:26px;
+}
+
+.message{
+    margin:15px 0;
+    line-height:1.6;
+}
+
+/* Photo Gallery */
+
+.gallery{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:12px;
+    object-fit:cover;
+    height:120px;
+    box-shadow:0 3px 6px rgba(0,0,0,0.3);
+}
+
+/* Heart Animation */
+
+.heart{
+    position:fixed;
+    font-size:20px;
+    animation:float 4s linear infinite;
+    opacity:0.8;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-800px);opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Question Page -->
+    <div id="question">
+
+        <h1>💖 Will You Be My Valentine? 💖</h1>
+
+        <div class="buttons">
+
+            <button id="yesBtn">Yes 😘</button>
+
+            <button id="noBtn">No 😜</button>
+
+        </div>
+
+    </div>
+
+    <!-- Love Page -->
+    <div id="love">
+
+        <h1>❤️ I Knew You’d Say Yes ❤️</h1>
+
+        <div class="message">
+
+            My Dear Bubbles,<br><br>
+
+            From the first day I met you,
+            my life became brighter and happier.
+            You are my smile, my peace, my home.
+            I promise to love you, respect you,
+            and stand by you always. I know i am not perfect but for you i will try my best to become perfect so that i can give you all the happiness you deserve and mai tumhe tbhi pyaar krunga jab tum khud se pyaar nhi karogi. I am really grateful to have you and mai humesa khayal rakhunga.
+vaise toh har din mera tumhare sath valentine's day hai pr we are celebrating this love week together for the first time.
+Promise karta hu ki tumhare khushi mai tumhare sath rahunga and tumhare dukh mai tumse aage.
+💕
+
+            <br><br>
+
+            Happy Valentine’s Day 💌  
+            I Love You Forever 😘
+
+        </div>
+
+        <!-- Photo Section -->
+        <div class="gallery">
+
+            <!-- Replace images with yours -->
+            <img src="photo1.jpg">
+            <img src="photo2.jpg">
+            <img src="photo3.jpg">
+            <img src="photo4.jpg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* No Button Movement */
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",moveButton);
+noBtn.addEventListener("click",moveButton);
+
+function moveButton(){
+
+    const x = Math.random() * 250;
+    const y = Math.random() * 100;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+/* Yes Button */
+
+document.getElementById("yesBtn").addEventListener("click",function(){
+
+    document.getElementById("question").style.display="none";
+    document.getElementById("love").style.display="block";
+
+    startHearts();
+});
+
+/* Hearts Animation */
+
+function startHearts(){
+
+    setInterval(()=>{
+
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML="💖";
+
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.bottom = "0px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },4000);
+
+    },300);
+}
+
+</script>
+
+</body>
+</html>
